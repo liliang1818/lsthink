@@ -1,0 +1,19 @@
+{
+    "name": "liliang520/lsthink",
+    "description": "个人使用thinkphp包",
+    "keywords": ["thinkphp"],
+    "type": "library",
+    "autoload": {
+        "files": [
+            "loader.php"
+        ]
+    },
+    "homepage":"https://gitee.com/liliang520/lsthink",
+    "authors":[
+        {
+            "name":"liliang",
+            "email":"1064688548@qq.com"
+        }
+    ],
+    "license":"MIT"
+}
