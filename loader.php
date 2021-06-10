@@ -58,7 +58,6 @@ foreach ($_GET as $key => $value) {
 	}
 	$_GET[$key] = $_GPC[$key] = $value;
 }
-
 $_GPC = array_merge($_GPC, $_POST);
 $_GPC = ihtmlspecialchars($_GPC);
 $_W['uniacid'] = 1;
