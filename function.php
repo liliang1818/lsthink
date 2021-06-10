@@ -1,15 +1,23 @@
 <?php
 function isetcookie($key, $value, $expire = 0, $httponly = false) {
 	global $_W;
-	require IA_ROOT . DIRECTORY_SEPARATOR . 'config' . DIRECTORY_SEPARATOR . 'config.php';
 	$expire = 0 != $expire ? (time() + $expire) : 0;
 	$secure = 443 == $_SERVER['SERVER_PORT'] ? 1 : 0;
-	return setcookie($configcookie['pre'] . $key, $value, $expire, '/', "", $secure, $httponly);
+	if (file_exists(IA_ROOT . DIRECTORY_SEPARATOR . 'config' . DIRECTORY_SEPARATOR . 'config.php')) {
+		require IA_ROOT . DIRECTORY_SEPARATOR . 'config' . DIRECTORY_SEPARATOR . 'config.php';
+		return setcookie($configcookie['pre'] . $key, $value, $expire, '/', "", $secure, $httponly);
+	} else {
+		return setcookie('lshd_' . $key, $value, $expire, '/', "", $secure, $httponly);
+	}
 }
 function igetcookie($key) {
 	global $_W;
-	require IA_ROOT . DIRECTORY_SEPARATOR . 'config' . DIRECTORY_SEPARATOR . 'config.php';
-	$key = $configcookie['pre'] . $key;
+	if (file_exists(IA_ROOT . DIRECTORY_SEPARATOR . 'config' . DIRECTORY_SEPARATOR . 'config.php')) {
+		require IA_ROOT . DIRECTORY_SEPARATOR . 'config' . DIRECTORY_SEPARATOR . 'config.php';
+		$key = $configcookie['pre'] . $key;
+	} else {
+		$key = 'lshd_' . $key;
+	}
 	if ($_COOKIE[$key]) {
 		return $_COOKIE[$key];
 	}

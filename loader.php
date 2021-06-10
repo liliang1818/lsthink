@@ -1,13 +1,12 @@
 <?php
 require __DIR__ . DIRECTORY_SEPARATOR . 'defind.php';
-require __DIR__ . DIRECTORY_SEPARATOR . 'dload.php';
 require __DIR__ . DIRECTORY_SEPARATOR . 'function.php';
 define('IA_ROOT', str_replace('\\', '/', dirname(dirname(__FILE__))));
-define('JULI', IA_ROOT . DIRECTORY_SEPARATOR . 'runtime' . DIRECTORY_SEPARATOR . 'jsondate' . DIRECTORY_SEPARATOR);
 define('LS_IOS', "0");
 define('LS_SYSOS_TYPES', '');
 define('MAGIC_QUOTES_GPC', (function_exists('get_magic_quotes_gpc') && @get_magic_quotes_gpc()) || @ini_get('magic_quotes_sybase'));
 define('ADDONS_PLUGIN_URL', 'http://addons.ls11.cn/');
+define('ATTACHMENT_ROOT', IA_ROOT . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'attachment' . DIRECTORY_SEPARATOR);
 $_W = $_GPC = array();
 if (strpos($_SERVER["REQUEST_URI"], MODULE_NAME) !== false) {
 	define('SYS_TYPE', 'W7');
@@ -62,5 +61,4 @@ foreach ($_GET as $key => $value) {
 
 $_GPC = array_merge($_GPC, $_POST);
 $_GPC = ihtmlspecialchars($_GPC);
-define('ATTACHMENT_ROOT', IA_ROOT . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'attachment' . DIRECTORY_SEPARATOR);
 $_W['uniacid'] = 1;
