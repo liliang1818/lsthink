@@ -8,7 +8,7 @@ define('MAGIC_QUOTES_GPC', (function_exists('get_magic_quotes_gpc') && @get_magi
 define('ADDONS_PLUGIN_URL', 'http://addons.ls11.cn/');
 define('ATTACHMENT_ROOT', IA_ROOT . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'attachment' . DIRECTORY_SEPARATOR);
 $_W = $_GPC = array();
-if (strpos($_SERVER["REQUEST_URI"], MODULE_NAME) !== false) {
+if (!empty($_SERVER["REQUEST_URI"]) && strpos($_SERVER["REQUEST_URI"], MODULE_NAME) !== false) {
 	define('SYS_TYPE', 'W7');
 } else {
 	define('SYS_TYPE', '');

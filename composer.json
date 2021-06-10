@@ -3,11 +3,6 @@
     "description": "个人使用thinkphp包",
     "keywords": ["thinkphp"],
     "type": "library",
-    "autoload": {
-        "files": [
-            "loader.php"
-        ]
-    },
     "homepage":"https://github.com/liliang1818/lsthink",
     "authors":[
         {
