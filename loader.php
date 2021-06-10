@@ -60,4 +60,6 @@ foreach ($_GET as $key => $value) {
 }
 $_GPC = array_merge($_GPC, $_POST);
 $_GPC = ihtmlspecialchars($_GPC);
-$_W['uniacid'] = 1;
+if (empty($_W['uniacid'])) {
+	$_W['uniacid'] = 1;
+}
